@@ -1,0 +1,59 @@
+\documentclass[a4paper,14pt]{report}
+
+\input{packages}                % Подключаемые пакеты
+\hypersetup{
+  pdftitle = {Mitel MX-ONE short manual},
+  pdfauthor = {AM}
+  }
+
+\input{styles}                  % Пользовательские стили
+
+\begin{document}
+
+\input{names}                   % Переопределение именований
+
+\graphicspath{{img/}}
+\input{title}                   % Титульный лист
+
+\input{contents}                % Оглавление
+
+\input{shortcuts}               % Сокращения
+%\printnomenclature
+%\newpage
+
+\pagestyle{fancy}
+\fancyhead[CO,CE]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[L] {\tiny draft v1.3.4, Sep. 3, 2019} %\today}
+
+%\input{introduction}            % Введение
+\input{mxone_manual}            % Глава 1
+%\input{part2}                   % Глава 2
+
+
+%\bibliography{biblio}          % Подключаем BibTeX-базы
+%\addcontentsline{toc}{chapter}{\bibname}   % Добавляем список
+                                            % литературы в оглавление
+                                            \clearpage
+                                            \newpage
+
+\listoffigures                             % Список изображений
+\addcontentsline{toc}{chapter}{\listfigurename}  % Добавляем на него
+
+%\listoftables           % Список таблиц
+%\addcontentsline{toc}{chapter}{\listtablename} % Добавляем на него ссылку в оглавление
+
+%\lstlistoflistings
+%\addcontentsline{toc}{chapter}{\lstlistlistingname}
+
+%\input{appendix}                % Приложения
+
+\newpage
+\thispagestyle{empty}
+
+\vspace{150mm}
+
+{\tiny Вся информация предоставляется в исходном виде, без гарантий полноты или своевременности. Использование содержимого осуществляются исключительно по вашему усмотрению и на ваш риск. Любые торговые марки, знаки и названия товаров, которые упоминаются, принадлежат их законным владельцам.}
+
+\end{document}
+

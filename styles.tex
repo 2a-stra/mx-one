@@ -1,0 +1,126 @@
+%%% Макет страницы %%%
+\geometry{a4paper,top=20mm,bottom=20mm,left=25mm,right=10mm}
+
+%%% Кодировки и шрифты %%%
+%\renewcommand{\rmdefault}{ftm} % Включаем Times New Roman
+
+%%% Выравнивание и переносы %%%
+\sloppy					% Избавляемся от переполнений
+\clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Библиография %%%
+%\bibliographystyle{ugost2008}
+%\defaultbibliography{biblio}
+%\makeatletter
+%\bibliographystyle{utf8gost705u}	% Оформляем библиографию в
+                                    % соответствии с ГОСТ 7.0.5
+%\renewcommand{\@biblabel}[1]{\hfill#1.}	% Заменяем библиографию с
+                                % квадратных скобок на точку: 
+                                % без точки (АМ)
+%\makeatother
+
+% полуторный интервал (из пакета setspace)
+\onehalfspacing
+
+%%% Изображения %%%
+\graphicspath{{images/}} % Пути к изображениям
+
+% Подписи
+%\DeclareCaptionLabelSeparator{tire}{~---~}
+%\renewcommand{\thesubfigure}{\asbuk{subfigure}}  % рисунки а) б) в)
+%\captionsetup{justification=centering,labelsep=tire}
+%\captionsetup[table]{justification=left}
+
+%%% Цвета гиперссылок %%%
+\definecolor{linkcolor}{rgb}{0.1,0.1,0.6}
+\definecolor{citecolor}{rgb}{0,0.6,0}
+\definecolor{urlcolor}{rgb}{0,0,1}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
+
+%%% Оглавление %%%
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+ 
+% Списки
+\makeatletter
+    \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep}
+\renewcommand{\labelitemi}{-}
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+
+% Разделы c точкой на конце
+%\renewcommand{\thechapter}{\arabic{chapter}}
+%\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+%\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+
+\newcommand\Chapter[1]{
+        \refstepcounter{chapter}
+                \chapter*{
+                \begin{huge}
+                \textbf{\chaptername\ \arabic{chapter}\\}
+                \end{huge}%
+                \bigskip \bigskip
+                \raggedright #1
+        }
+        \addcontentsline{toc}{chapter}{\arabic{chapter}. #1}
+}
+
+\newcommand\Section[1]{
+        \refstepcounter{section}
+        \section*{\raggedright
+        \arabic{chapter}.\arabic{section} #1}
+        \addcontentsline{toc}{section}{%
+        \arabic{chapter}.\arabic{section}. #1}
+}
+
+
+\newcommand\Subsection[1]{
+        \refstepcounter{subsection}
+        \subsection*{\raggedright
+        \arabic{chapter}.\arabic{section}.\arabic{subsection} #1}
+        \addcontentsline{toc}{subsection}{%
+        \arabic{chapter}.\arabic{section}.\arabic{subsection}. #1
+        }
+}
+
+%%% Счётчики рисунков, таблиц и источников
+\newcounter{totfigures}
+\newcounter{tottables}
+%\newcounter{totreferences}
+%\makeatletter
+%    \AtEndDocument{%
+%      \addtocounter{totfigures}{\value{figure}}%
+%      \addtocounter{tottables}{\value{table}}%
+%      \immediate\write\@mainaux{%
+%        \string\gdef\string\totfig{\number\value{totfigures}}%
+%        \string\gdef\string\tottab{\number\value{tottables}}%
+%        \string\gdef\string\totref{\number\value{totreferences}}%
+%      }%
+%    }
+%\makeatother
+
+%\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}}{}{}
+%\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}}{}{}
+%\pretocmd{\bibitem}{\addtocounter{totreferences}{1}}{}{}
+
+% номенклатура
+\makenomenclature
+
+\lstloadlanguages{C,[GNU]C++,bash,Python,Awk,Gnuplot,Perl,tcl}
+\lstset{
+  basicstyle=\scriptsize,
+  frame=tb,
+%  backgroundcolor=\color{light-gray},
+  commentstyle=\itshape,
+  stringstyle=\bfseries,
+  linewidth=\linewidth,
+  breaklines=true,
+  breakatwhitespace=true
+}
+
+%\captionsetup[lstlisting]{justification=left}

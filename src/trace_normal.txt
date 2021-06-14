@@ -1,0 +1,24 @@
+MX-One6:~ # call_trace -d 103
+Number 103 is a generic number.
+
+SIP extension
+sip:103@10.130.0.83;instance=urn:uuid:00000000-0000-1000-8000-00085D13CAC9
+
+*************************************************************
+State is: SPEECH
+-------------------------------------------------------------
+Start time: 2015-10-23 14:03:54 (EET) Duration: 0d00:00:02
+Call type: 8 (Ordinary internal call)
+A-number (int): 101                   Charged : 101
+Dialled-number: 103                   Called  : 103
+
+Connection type: pointToPoint
+--------------------------------
+A_Party in  Lim:   1, Unit: SIPLP          {MD_Type::Address lim=1, unit=0x12a, pointer=0xd7ad, addrCtrl=0xa2}
+Party RTP address:   10.130.0.82:3000, Codec: (audio(0)-G722)
+Direct media
+--------------------------------
+B_Party1 in Lim:   1, Unit: SIPLP          {MD_Type::Address lim=1, unit=0x12a, pointer=0xd7ae, addrCtrl=0xa6}
+Party RTP address:   10.130.0.83:3000, Codec: (audio(0)-G722)
+Direct media
+--------------------------------
